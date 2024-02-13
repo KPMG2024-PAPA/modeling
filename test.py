@@ -24,6 +24,7 @@ client = AzureOpenAI(
 
 prompt = ""
 
+sum = input('발명 요약 : ')
 
 response = client.chat.completions.create(
     model=deployment_name,
@@ -33,12 +34,12 @@ response = client.chat.completions.create(
             { 
                 "type": "text", 
                 "text": 
-                """
+                f"""
 도면 이미지와 발명 요약을 기반으로 특허 명세서를 작성해주세요. 특허 명세서의 형식은 [특허 명세서의 구성]을 따라서 작성해주세요.
 
 Context :
 
-- 발명 요약 : 본 발명의 일 실시예에 따른 외부 기기와의 무선 통신을 수행할 수 있는 디지털 카메라에 있어서, 카메라 본체 및 카메라 본체에 장착되며, 복수의 촬영 렌즈들을 수용하는 복수의 배럴들을 가진 렌즈 배럴 조립체를 포함하며, 복수의 배럴들 중 어느 하나는 무선 통신을 위한 안테나 기능을 가진 안테나 배럴로 사용되며, 안테나 배럴이 안테나 기능을 수행하기 위한 전파를 방사할 수 있도록, 안테나 배럴은 금속 물질로 이루어지고 안테나 배럴에는 유전체 물질로 채워진 적어도 하나의 슬릿이 형성되며, 안테나 배럴의 외측 표면을 둘러싸는 카메라 본체의 외부 케이싱 부분은, 안테나 배럴의 그라운드로 기능하도록 금속 물질로 이루어지는 것을 특징으로 한다.
+- 발명 요약 : {sum}
 - 특허 명세서의 구성
     1. 발명의 명칭 
     2. 특허청구의 범위 [보호받고자 하는 기술내용의 요약을 포함하는 청구항을 구체적으로 작성하세요]
@@ -66,4 +67,4 @@ Context :
     max_tokens=4096
 )
 
-print(response.choices[0].message.content)
+print(f"- 발명 요약 : {sum} \n", response.choices[0].message.content)
