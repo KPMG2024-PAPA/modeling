@@ -1,5 +1,8 @@
 # !pip install keybert
 # !pip install kiwipiepy
+from keybert import KeyBERT
+from kiwipiepy import Kiwi
+from transformers import BertModel
 
 def keyword_extractor(input: str) -> str:
     
@@ -13,10 +16,6 @@ def keyword_extractor(input: str) -> str:
     날개+선풍기+다이슨+날개+소음+발생+무게+전력+소비+에너지+효율
     
     """
-
-    from keybert import KeyBERT
-    from kiwipiepy import Kiwi
-    from transformers import BertModel
 
     text=input
 
