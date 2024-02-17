@@ -177,6 +177,8 @@ def ipc_subcategory_graph(ipc_subcategory: str) -> base64:
     plt.text(1, -0.1, "참고: IPSS 지식 재산 통계 서비스", ha='right', fontproperties = custom_font_text, transform=plt.gca().transAxes)
     plt.xlabel('연도', fontproperties = custom_font_text)  # Add a label to the x-axis
     plt.ylabel('소분류 출원 추이', fontproperties = custom_font_text)  # Add a label to the y-axis
+    plt.xticks(fontproperties=custom_font_text)
+    plt.yticks(fontproperties=custom_font_text) 
     # plt.grid(True)  # Add grid lines
     # plt.show()
     
