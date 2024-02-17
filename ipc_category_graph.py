@@ -43,8 +43,10 @@ def ipc_category_graph(ipc_category: str) -> base64:
     # Add labels and legend
     plt.xlabel('연도', fontproperties = custom_font_text)
     plt.ylabel('대분류별 출원 추이', fontproperties = custom_font_text)
+    plt.xticks(fontproperties=custom_font_text)
+    plt.yticks(fontproperties=custom_font_text)
     plt.title(f'대분류 {ipc_category} 특허 출원 추이',fontproperties = custom_font_title)
-    plt.legend()
+    plt.legend(prop = custom_font_text)
     # plt.grid(True)  # Add grid lines
     plt.text(1, -0.1, "참고: IPSS 지식 재산 통계 서비스", ha='right', fontproperties = custom_font_text, transform=plt.gca().transAxes)
     # Show plot
