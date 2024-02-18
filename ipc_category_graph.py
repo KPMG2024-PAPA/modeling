@@ -11,7 +11,7 @@ import base64
 font_path_title = "./Pretendard-ExtraBold.ttf"
 font_path_text = "./Pretendard-Medium.ttf"
 
-ipc_application_category = pd.read_csv('./ipc_application_category.csv')
+ipc_application_category = pd.read_csv('./ipc_application_category.csv', index_col=0)
 
 def ipc_category_graph(ipc_category: str) -> base64:
     
@@ -61,4 +61,5 @@ def ipc_category_graph(ipc_category: str) -> base64:
     img_base64 = base64.b64encode(img_bytes_io.getvalue()).decode()
     
     return img_base64
+
 
