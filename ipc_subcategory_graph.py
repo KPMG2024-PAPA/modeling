@@ -11,7 +11,7 @@ import base64
 font_path_title = "./Pretendard-ExtraBold.ttf"
 font_path_text = "./Pretendard-Medium.ttf"
 
-ipc_application_subcategory = pd.read_csv('./ipc_application_subcategory.csv')
+ipc_application_subcategory = pd.read_csv('./ipc_application_subcategory.csv', index_col=0)
 
 def ipc_subcategory_graph(ipc_subcategory: str) -> base64:  
    
@@ -180,7 +180,7 @@ def ipc_subcategory_graph(ipc_subcategory: str) -> base64:
     plt.xticks(fontproperties=custom_font_text)
     plt.yticks(fontproperties=custom_font_text) 
     # plt.grid(True)  # Add grid lines
-    # plt.show()
+   #  plt.show()
     
     img_bytes_io = io.BytesIO()
     plt.savefig(img_bytes_io, format='png')
@@ -191,3 +191,5 @@ def ipc_subcategory_graph(ipc_subcategory: str) -> base64:
     img_base64 = base64.b64encode(img_bytes_io.getvalue()).decode()
     
     return img_base64
+
+
